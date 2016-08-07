@@ -18,6 +18,9 @@ class Process
      */
     private $logger;
 
+
+    private $process_id =0;
+
     /**
      * @var resource
      */
@@ -27,12 +30,14 @@ class Process
      * @param Config $config
      * @param LoggerInterface $logger
      */
-    public function __construct(Config $config, LoggerInterface $logger = null)
+    public function __construct(Config $config, LoggerInterface $logger = null,$process_id=0)
     {
         $this->setConfig($config);
         if (null !== $logger) {
             $this->setLogger($logger);
         }
+
+        $this->setProcessId($process_id);
     }
 
     /**
@@ -40,7 +45,7 @@ class Process
      */
     public function getPidFile()
     {
-        return sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::PID_FILE;
+        return sys_get_temp_dir() . DIRECTORY_SEPARATOR . $this->getProcessId().self::PID_FILE;
     }
 
     /**
@@ -48,7 +53,7 @@ class Process
      */
     public function getLockFile()
     {
-        return sys_get_temp_dir() . DIRECTORY_SEPARATOR . self::LOCK_FILE;
+        return sys_get_temp_dir() . DIRECTORY_SEPARATOR .$this->getProcessId(). self::LOCK_FILE;
     }
 
     public function stop()
@@ -134,6 +139,30 @@ class Process
         fclose($fp);
         return false;
     }
+
+
+    /**
+     * @param Int $process_id
+     * @return $this
+     */
+    public function setProcessId($process_id)
+    {
+        $this->process_id = $process_id;
+        return $this;
+    }
+
+
+    /**
+     * @return Int
+     */
+    public function getProcessId()
+    {
+
+        return $this->process_id ;
+    }
+
+
+
 
     /**
      * @param Config $config
