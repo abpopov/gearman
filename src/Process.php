@@ -19,7 +19,7 @@ class Process
     private $logger;
 
 
-    private $process_id =0;
+    private $process_id ="0";
 
     /**
      * @var resource
@@ -30,7 +30,7 @@ class Process
      * @param Config $config
      * @param LoggerInterface $logger
      */
-    public function __construct(Config $config, LoggerInterface $logger = null,$process_id=0)
+    public function __construct(Config $config, LoggerInterface $logger = null,$process_id="0")
     {
         $this->setConfig($config);
         if (null !== $logger) {
@@ -142,7 +142,7 @@ class Process
 
 
     /**
-     * @param Int $process_id
+     * @param string $process_id
      * @return $this
      */
     public function setProcessId($process_id)
