@@ -36,7 +36,7 @@ class Process
         if (null !== $logger) {
             $this->setLogger($logger);
         }
-
+ 
         $this->setProcessId($process_id);
     }
 
