@@ -1,4 +1,5 @@
 <?php
+//by abpopov
 namespace Sinergi\Gearman;
 
 use Closure;
