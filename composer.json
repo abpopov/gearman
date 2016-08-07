@@ -1,5 +1,5 @@
 {
-    "name": "abpopov/gearman",
+    "name": "sinergi/gearman",
     "type": "library",
     "description": "PHP library for dispatching, handling and managing Gearman Workers",
     "keywords": ["Gearman", "Workers", "Daemon", "Jobs", "Tasks"],
