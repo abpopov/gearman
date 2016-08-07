@@ -1,5 +1,5 @@
 <?php
-//by abpopov
+//by abpopv
 namespace Sinergi\Gearman;
 
 use Closure;
